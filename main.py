@@ -64,7 +64,7 @@ def process_request(path):
                 return result, 501
             else:
                 update_item_json = flask.request.get_json()
-                item_update = UpdateInTable().run(table_from_url, vars_return[1], update_item_json, cursor, connection)
+                item_update = UpdateInTable().run(table_from_url, zid_from_url, update_item_json, cursor, connection)
                 return item_update
         else:
             if zid_from_url is None:
