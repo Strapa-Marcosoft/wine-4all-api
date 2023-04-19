@@ -1,4 +1,5 @@
 import flask
+from gevent.pywsgi import WSGIServer
 from src.winePrj import GetAllInTable
 from src.winePrj import InsertInTable
 from src.winePrj import GetInTable
@@ -78,5 +79,8 @@ def process_request(path):
                 return item_delete
     connection.close()
 
+if __name__ == '__main__':
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
 
 app.run(port=5000, host='localhost', debug=True)

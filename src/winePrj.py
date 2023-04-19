@@ -2,6 +2,7 @@ import mysql.connector
 from urllib.parse import urlparse, unquote
 
 
+
 class CreateConnection:
     def run(self):
         try:
@@ -32,7 +33,11 @@ class InsertInTable:
         cursor.execute(sql_string)
         connection.commit()
         rows = cursor.rowcount
-        return 'Success: ' + str(rows) + ' rows inserted in table ' + str(table_from_url)
+        result = {'code': 201,
+                  'name': 'Created',
+                  'description': 'Success: ' + str(rows) + ' rows inserted in table ' + str(table_from_url)
+                  }
+        return result, 201
 
 
 class GetInTable:
