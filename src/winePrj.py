@@ -6,7 +6,7 @@ from urllib.parse import urlparse, unquote
 class CreateConnection:
     def run(self):
         try:
-            conn = mysql.connector.connect(host='localhost', database='wine_4all', user='alexlpaz', password='Paulista@123')
+            conn = mysql.connector.connect(host='srv950.hstgr.io', database='u174080444_wine4all', user='u174080444_wine4all_admin', password='nd*#Z1H;')
             return conn
         except mysql.connector.Error as e:
             print('Error while connecting to MySQL: %s', e)
